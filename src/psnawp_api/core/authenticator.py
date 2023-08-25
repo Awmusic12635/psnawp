@@ -114,6 +114,7 @@ class Authenticator:
         parsed_url = urlparse(location_url)
         parsed_query = parse_qs(parsed_url.query)
         if "error" in parsed_query.keys():
+            print(parsed_query)
             if "4165" in parsed_query["error_code"]:
                 raise psnawp_exceptions.PSNAWPAuthenticationError("Your npsso code has expired or is incorrect. Please generate a new code!")
             else:
